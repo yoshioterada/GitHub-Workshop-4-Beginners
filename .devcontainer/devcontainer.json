@@ -5,8 +5,10 @@
     "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/devcontainers/features/azure-cli:1": {}
   },
-  "forwardPorts": [4173],
-  "postCreateCommand": "./.devcontainer/post-create.sh",
+  "forwardPorts": [
+    4173
+  ],
+  "postCreateCommand": "bash ./.devcontainer/post-create.sh",
   "customizations": {
     "vscode": {
       "extensions": [

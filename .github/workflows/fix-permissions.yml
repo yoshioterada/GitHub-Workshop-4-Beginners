@@ -1,0 +1,24 @@
+name: Fix Script Permissions
+
+on:
+  push:
+    paths:
+      - '.devcontainer/post-create.sh'
+
+jobs:
+  fix-permissions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Add execute permission
+        run: |
+          chmod +x .devcontainer/post-create.sh
+          
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .devcontainer/post-create.sh
+          git diff --cached --quiet || git commit -m "fix: Add execute permission to post-create.sh"
+          git push
