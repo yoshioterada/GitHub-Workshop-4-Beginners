@@ -29,7 +29,7 @@
 
 ## 1. Issue を作成する（約 15 分）
 
-### Issue が Enable になっていない場合
+### Issues が Enable になっていない場合
 
 ![Enable Issue1](./assets/images/enable-issue1.png)
 ![Enable Issue2](./assets/images/enable-issue2.png)
@@ -43,7 +43,7 @@
    ![Create Issue1](./assets/images/create-issue1.png)
    ![Create Issue2](./assets/images/create-issue2.png)
 2. **テンプレートを埋める**
-   - タイトル: 例 `VPN エラー 619 が出る`
+   - タイトル: 例 `WiFi に接続をしようとしても認証画面が表示されず接続できない`
    - 再現手順: 時系列で 3 行以上を書く。
    - 期待する結果: どんな FAQ があれば解決しそうかを書く。
    - SLA と添付リンク欄も必ず入力。
@@ -65,7 +65,7 @@
 
 ### 2.1 Issue からブランチを作成
 
-- **GUI**: Issue 画面右上の `Create branch` → `issue-<番号>-短い説明` の形式で作成。
+- **GUI**: Issue 画面右ペインの `Development` から `Create branch` のリンクをクリックし `issue-<番号>-短い説明` の形式で作成。
 - **CLI**: `git fetch origin` 後に `git switch -c issue-<番号>-短い説明 origin/main`。フォークで main 名が異なる場合は `origin/main` を適宜変更。
 
 ![Create New Branch](./assets/images/create-a-new-branch1.png)
@@ -78,36 +78,46 @@
 - **CLI**: `git switch issue-<番号>-短い説明`（古いバージョンなら `git checkout issue-<番号>-短い説明`）。現在のブランチは `git status -sb` で確認。
 ![Create New Branch](./assets/images/create-a-new-branch3.png)
 
-### 2.3 VS Code / エディタを開く
+### 2.3 Local もしくは Codespaces で VS Code を開く
 
 - **GitHub Desktop**: `Open in Visual Studio Code` で対象ファイルへ移動。
-- **CLI**: VS Code を使うなら `code .` や `code docs/faq/vpn.md`。Vim 等のエディタ派は `vim docs/faq/vpn.md` など好みのツールを使用。
+- **CLI**: VS Code を使うなら `code .` や `code docs/faq/wifi-connection-fail.md`。Vim 等のエディタ派は `vim docs/faq/wifi-connection-fail.md` など好みのツールを使用。
 ![Open Codespaces](./assets/images/open-codespaces1.png)
 
-### 2.4 新しい FAQ ドキュメントを作成、編集
+### 2.4 新しい FAQ ドキュメント・ファイルを作成
 
-- 例: `docs/faq/vpn.md` の「解決ステップ」に手順を追記。
+- 例: `docs/faq/wifi-connection-fail.md` の「解決ステップ」に手順を追記。
 - 画像が必要なら `assets/images/` の SVG を再利用。
 ![Create new FAQ File](./assets/images/create-new-faq-file1.png)
+
+### 2.5 GitHub Copilot Agent Mode でドキュメント編集
+
+GitHub Copilot を利用できるようにし、Copilot でドキュメントを編集する。
+まず、GitHub Copilot を利用できるように設定。
+
+「Premium モデルの追加」をクリック
 ![Config GitHub Copilot 1](./assets/images/Configure-GitHub-Copilot-for-Free-Plan1.png)
+「Use AI Feature」のボタンをクリック
 ![Config GitHub Copilot 2](./assets/images/Configure-GitHub-Copilot-for-Free-Plan2.png)
+「モデルの管理... Add Premium Models」でモデルを選択。例：`GPT-4.1`
 ![Config GitHub Copilot 3](./assets/images/Configure-GitHub-Copilot-for-Free-Plan3.png)
+
+GitHubの Agent Mode を利用して、AI によるドキュメント作成
+
 ![Create Document by Copilot 1](./assets/images/Ask-GitHub-Copilot-to-Create-Document1.png)
-![Create Document by Copilot 2](./assets/images/Ask-GitHub-Copilot-to-Create-Document1.png)
-![Create Document by Copilot 3](./assets/images/Ask-GitHub-Copilot-to-Create-Document1.png)
 
 ## 3. 変更をコミットしてプッシュ（約 10 分）
 
 1. **変更を確認**
    - GitHub Desktop の `Changes` タブで差分を見る。
    - 余計なファイルが含まれていないかチェック。
-   - CLI: `git status` で変更ファイル一覧、`git diff` で差分を確認。特定ファイルのみ見たいときは `git diff docs/faq/vpn.md` のようにパスを指定。
+   - CLI: `git status` で変更ファイル一覧、`git diff` で差分を確認。特定ファイルのみ見たいときは `git diff docs/faq/wifi-connection-fail.md` のようにパスを指定。
    ![Git Commit1](./assets/images/git-commit-push1.png)
    ![Git Commit2](./assets/images/git-commit-push2.png)
 2. **コミットメッセージを書く**
-   - `Summary`: `docs: VPN FAQ にエラー表を追加`
-   - `Description`: 変更理由や Issue 番号（例: `Refs #101`）。
-   - CLI: `git add docs/faq/vpn.md` など必要なファイルをステージし、`git commit -m "docs: VPN FAQ にエラー表を追加" -m "Refs #101"` を実行。
+   - `Summary`: `docs: WiFi Connection Fail checker`
+   - `Description`: 変更理由や Issue 番号（例: `Refs #1`）。
+   - CLI: `git add docs/faq/wifi-connection-fail.md` など必要なファイルをステージし、`git commit -m "docs: WiFi Connection Fail checker" -m "Refs #1"` を実行。
    ![Git Commit3](./assets/images/git-commit-push3.png)
 3. **コミット & プッシュ**
    - `Commit to <branch>` → `Push origin` の順。
@@ -121,9 +131,9 @@
    - CLI: `gh pr create --fill --head issue-<番号>-短い説明` を実行。テンプレートが自動で差し込まれ、ブラウザなしで PR を作成可能。
    ![Create PR1](./assets/images/create-PR1.png)
 2. **テンプレートを埋める**
-   - 背景: どの Issue を解決するか（例: `Fixes #101`）。
+   - 背景: どの Issue を解決するか（例: `Fixes #1`）。
    - 変更内容: 箇条書きで 2 行以上。
-   - 確認方法: どうやって結果をチェックしたか（例: `docs/faq/vpn.md をプレビューで確認`）。
+   - 確認方法: どうやって結果をチェックしたか（例: `docs/faq/wifi-connection-fail.md をプレビューで確認`）。
    - テンプレート本文は `.github/pull_request_template.md` にあるので、フォーマット確認やカスタマイズ時に参照してください。
    - CLI: `gh pr edit --body-file .github/pull_request_template.md` でテンプレートを読み込み、VS Code 等で編集後に保存して反映。
    ![Create PR2](./assets/images/create-PR2.png)
