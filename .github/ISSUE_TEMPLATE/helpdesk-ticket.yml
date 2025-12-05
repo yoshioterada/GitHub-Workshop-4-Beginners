@@ -1,0 +1,71 @@
+name: Helpdesk Ticket
+description: HelpDesk Motor Company の問い合わせを FAQ に反映するためのテンプレート
+labels:
+  - helpdesk
+  - needs-triage
+title: "[FAQ] <簡潔なタイトル>"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ワークショップでは **GUI 操作** を中心に進めます。入力に迷ったら `docs/sample-issues/` の例や `assets/snippets/template.md` を参照してください。
+  - type: input
+    id: summary
+    attributes:
+      label: タイトル
+      description: 例) VPN エラー 619 が出て接続できない
+      placeholder: クリアで短い文章を入力
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 再現手順
+      description: 番号付きで 3 ステップ以上を記載してください。
+      placeholder: |
+        1. 〜〜 を開く
+        2. 〜〜 のボタンを押す
+        3. エラー 619 が表示される
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期待する結果 / FAQ で知りたいこと
+      description: どんな情報が FAQ にあれば解決できるかを書いてください。
+    validations:
+      required: true
+  - type: dropdown
+    id: sla
+    attributes:
+      label: SLA / 優先度
+      options:
+        - High (本日中)
+        - Medium (3 営業日以内)
+        - Low (今週中)
+      default: 1
+    validations:
+      required: true
+  - type: textarea
+    id: attachments
+    attributes:
+      label: 添付リンク・証跡
+      description: OneDrive / Teams / SharePoint / 画像などの URL を記入
+      placeholder: https://contoso.sharepoint.com/.../evidence.mp4
+  - type: textarea
+    id: actions
+    attributes:
+      label: 次のアクション候補
+      description: チェックリスト形式でタスクを並べると後続作業がスムーズです。
+      placeholder: |
+        - [ ] docs/faq/vpn.md にエラー表を追加
+        - [ ] assets/images/vpn-status.svg を準備
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: 送信前チェック
+      options:
+        - label: Projects カードを追加または更新します
+          required: true
+        - label: Copilot/メンターに確認したいことがあればメモしました
+          required: false

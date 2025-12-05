@@ -32,7 +32,7 @@
    - Issue 作成後、右側の `Projects` で `HelpDesk Refresh Board` を選択。
    - 既定で「未着手」にカードが作られるので、担当列を確認。
 
-> メモ: サンプルは `docs/sample-issues/issue-101-vpn.md` を参照してください。
+> メモ: サンプルは `docs/sample-issues/issue-101-vpn.md` を参照してください。テンプレートの定義は `.github/ISSUE_TEMPLATE/helpdesk-ticket.yml` にあります。
 
 ---
 
@@ -72,6 +72,7 @@
    - 背景: どの Issue を解決するか（例: `Fixes #101`）。
    - 変更内容: 箇条書きで 2 行以上。
    - 確認方法: どうやって結果をチェックしたか（例: `docs/faq/vpn.md をプレビューで確認`）。
+   - テンプレート本文は `.github/pull_request_template.md` にあるので、フォーマット確認やカスタマイズ時に参照してください。
 3. **Projects カードを移動**
    - PR 作成後、Projects のカードを「レビュー」列にドラッグ。
 
