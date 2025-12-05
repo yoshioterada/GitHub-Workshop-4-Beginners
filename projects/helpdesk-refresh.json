@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "name": "HelpDesk Refresh Board",
+  "description": "FAQ 更新ワークショップで使う Projects (ボード)。列とカスタムフィールドをあらかじめ定義。",
+  "columns": [
+    { "name": "未着手", "purpose": "受信しただけの問い合わせ" },
+    { "name": "作業中", "purpose": "担当者がブランチを切って対応中" },
+    { "name": "レビュー", "purpose": "Pull Request レビュー中" },
+    { "name": "公開済み", "purpose": "FAQ が main にマージされ公開済み" }
+  ],
+  "customFields": [
+    { "name": "優先度", "type": "single_select", "options": ["High", "Medium", "Low"] },
+    { "name": "期限", "type": "date" },
+    { "name": "Slack 通知要否", "type": "single_select", "options": ["必要", "不要"] }
+  ],
+  "cards": [
+    {
+      "id": 9001,
+      "issue": 101,
+      "title": "VPN エラー 619",
+      "column": "作業中",
+      "priority": "High",
+      "dueDate": "2025-12-07",
+      "slackNotify": true
+    },
+    {
+      "id": 9002,
+      "issue": 102,
+      "title": "Teams 音声トラブル",
+      "column": "未着手",
+      "priority": "Medium",
+      "dueDate": "2025-12-12",
+      "slackNotify": false
+    },
+    {
+      "id": 9003,
+      "issue": 103,
+      "title": "プリンタ紙詰まり FAQ",
+      "column": "レビュー",
+      "priority": "Low",
+      "dueDate": "2025-12-18",
+      "slackNotify": false
+    }
+  ]
+}

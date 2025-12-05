@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <defs>
+    <style>
+      .bg { fill: #0f172a; }
+      .panel { fill: #1e293b; stroke: #38bdf8; stroke-width: 2; }
+      .text { fill: #f8fafc; font-family: 'Segoe UI', Arial, sans-serif; }
+      .label { font-size: 18px; }
+      .status { font-size: 48px; font-weight: bold; }
+    </style>
+  </defs>
+  <rect class="bg" width="640" height="360" rx="24"/>
+  <rect class="panel" x="40" y="60" width="560" height="240" rx="16"/>
+  <text class="text label" x="80" y="120">VPN CLIENT STATUS</text>
+  <text class="text status" x="80" y="190">ERROR 619</text>
+  <text class="text label" x="80" y="230">・ワンタイムパスワードを再入力してください</text>
+  <text class="text label" x="80" y="260">・ネットワーク切り替え（Wi-Fi → テザリング）</text>
+</svg>

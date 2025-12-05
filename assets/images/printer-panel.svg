@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <defs>
+    <style>
+      .bg { fill: #0c4a6e; }
+      .panel { fill: #ffffff; stroke: #0c4a6e; stroke-width: 3; }
+      .text { font-family: 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .status { font-size: 40px; font-weight: bold; }
+      .hint { font-size: 18px; }
+    </style>
+  </defs>
+  <rect class="bg" width="640" height="360" rx="24"/>
+  <rect class="panel" x="60" y="70" width="520" height="220" rx="16"/>
+  <text class="text status" x="120" y="150">PAPER JAM</text>
+  <text class="text hint" x="120" y="190">トレイ 2 を開き、奥のレバーを手前に引いて紙を抜き取ってください。</text>
+  <text class="text hint" x="120" y="220">感光ドラムには触れないでください。</text>
+</svg>

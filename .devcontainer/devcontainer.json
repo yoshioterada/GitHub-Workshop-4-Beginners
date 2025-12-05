@@ -1,0 +1,29 @@
+{
+  "name": "HelpDesk FAQ Workshop",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/azure-cli:1": {}
+  },
+  "forwardPorts": [4173],
+  "postCreateCommand": "./.devcontainer/post-create.sh",
+  "remoteUser": "vscode",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "yzhang.markdown-all-in-one",
+        "ms-vscode.remote-repositories",
+        "GitHub.vscode-pull-request-github"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "markdownlint.config": {
+          "MD025": false
+        }
+      }
+    }
+  }
+}
