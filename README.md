@@ -39,8 +39,7 @@ projects/        GitHub Projects（カンバン）の定義
 
 ## 関連リンク
 
-- [ワークショップ構成案](../plan.md)
-- [主催者向け TODO](../TODO.md)
+- [ワークショップ構成案](./plan.md)
 - [GitHub Desktop ガイド](docs/desktop-guide.md)
 - [Copilot プロンプト集](docs/prompts.md)
 - [CLI クイックリファレンス](docs/cli-cheatsheet.md)
