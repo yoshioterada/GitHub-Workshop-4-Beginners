@@ -36,6 +36,7 @@ projects/        GitHub Projects（カンバン）の定義
 - [パソコンの電源が入らないときの基本手順](docs/faq/stop-pc.md)
 - [Teams 会議に参加できないとき](docs/faq/teams.md)
 - [VPN 接続ができないときのチェックリスト](docs/faq/vpn.md)
+- [WiFi に接続できない場合の基本手順](docs/faq/wifi-connection-fail.md)
 <!-- FAQ-LIST:END -->
 
 ## 関連リンク
