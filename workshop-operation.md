@@ -14,8 +14,10 @@
 3. **クローン or Codespaces 起動**
    - GitHub Desktop: `Code > Open with GitHub Desktop` を押し、ローカルへ clone。
    - Codespaces を使う場合は `docs/codespaces-guide.md` の手順で「Create codespace on main」。
+   - CLI: `git clone https://github.com/<your-account>/helpdesk-faq-sample.git` でローカルに複製し、`cd helpdesk-faq-sample` で移動。
 4. **ブランチ状況を確認**
    - GitHub Desktop 左上 `Current Branch` が `main` になっているか確認し、`Fetch origin` で最新化。
+   - CLI: `git fetch origin && git status -sb` を実行し、`## main` と表示されれば OK。
 
 ---
 
@@ -23,6 +25,7 @@
 
 1. **Issue テンプレートを開く**
    - リポジトリ画面 → `Issues > New issue` → `Helpdesk Ticket` を選択。
+   - CLI (任意): GitHub CLI が使える場合は `gh issue create --template "helpdesk-ticket.yml" --title "[FAQ] ..." --body-file assets/snippets/template.md` のように実行しても OK。
 2. **テンプレートを埋める**
    - タイトル: 例 `VPN エラー 619 が出る`
    - 再現手順: 時系列で 3 行以上を書く。
@@ -41,18 +44,19 @@
 
 ### 2.1 Issue からブランチを作成
 
-- Issue 画面右上の `Create branch` → `issue-<番号>-短い説明` の形式で作成。
-- 「Create branch」ボタンが見当たらない場合は、右ペインの **Development** セクションにある `Create a branch for this issue` リンクをクリックすると同じダイアログが開きます。さらに Fork リポジトリでは GitHub Desktop から `Branch > New branch` を選び、命名ルール `issue-<番号>-短い説明` を手入力して作成しても構いません。
+- **GUI**: Issue 画面右上の `Create branch` → `issue-<番号>-短い説明` の形式で作成。
+- **CLI**: `git fetch origin` 後に `git switch -c issue-<番号>-短い説明 origin/main`。フォークで main 名が異なる場合は `origin/main` を適宜変更。
 
 ### 2.2 ブランチの切り替え
 
 - **GitHub Desktop**: 左上の `Current Branch` → 作成したブランチを選択。通知に出る `Switch to branch` をクリックしても OK。
-- **Codespaces / VS Code**: 左下のブランチ名をクリック → 一覧から作成済みブランチを選択。Command Palette（`Cmd/Ctrl + Shift + P`）で `Git: Checkout to...` を実行して選ぶこともできます。
-- **CLI**: ターミナルで `git fetch origin;git branch -a` を実行したのち `git switch issue-1-cant-start-pc`（古いバージョンなら `git checkout issue-1-cant-start-pc`）を実行。`git branch` で現在のブランチを確認可能です。
+- **Codespaces / VS Code**: 左下のブランチ名をクリック → 一覧から作成済みブランチを選択。Command Palette（`Cmd/Ctrl + Shift + P`）で `Git: Checkout to...` を実行しても切り替え可能。
+- **CLI**: `git switch issue-<番号>-短い説明`（古いバージョンなら `git checkout issue-<番号>-短い説明`）。現在のブランチは `git status -sb` で確認。
 
 ### 2.3 VS Code / エディタを開く
 
-- GitHub Desktop の `Open in Visual Studio Code` で対象ファイルへ移動。Codespaces の場合はブラウザ上の VS Code が自動で開きます。
+- **GitHub Desktop**: `Open in Visual Studio Code` で対象ファイルへ移動。
+- **CLI**: VS Code を使うなら `code .` や `code docs/faq/vpn.md`。Vim 等のエディタ派は `vim docs/faq/vpn.md` など好みのツールを使用。
 
 ### 2.4 FAQ を編集
 
@@ -66,12 +70,14 @@
 1. **変更を確認**
    - GitHub Desktop の `Changes` タブで差分を見る。
    - 余計なファイルが含まれていないかチェック。
-   - CLI で確認したい場合は `git status`（変更ファイル一覧）や `git diff`（差分内容）を実行。特定ファイルのみ見たいときは `git diff docs/faq/vpn.md` のようにパスを指定します。
+   - CLI: `git status` で変更ファイル一覧、`git diff` で差分を確認。特定ファイルのみ見たいときは `git diff docs/faq/vpn.md` のようにパスを指定。
 2. **コミットメッセージを書く**
    - `Summary`: `docs: VPN FAQ にエラー表を追加`
    - `Description`: 変更理由や Issue 番号（例: `Refs #101`）。
+   - CLI: `git add docs/faq/vpn.md` など必要なファイルをステージし、`git commit -m "docs: VPN FAQ にエラー表を追加" -m "Refs #101"` を実行。
 3. **コミット & プッシュ**
    - `Commit to <branch>` → `Push origin` の順。
+   - CLI: `git push origin issue-<番号>-短い説明`。初回は `git push -u origin issue-<番号>-短い説明` で upstream を設定。
 
 ---
 
@@ -79,13 +85,16 @@
 
 1. **PR を作る**
    - Push 後に表示される `Create Pull Request` を押すか、GitHub 上の `Compare & pull request` をクリック。
+   - CLI: `gh pr create --fill --head issue-<番号>-短い説明` を実行。テンプレートが自動で差し込まれ、ブラウザなしで PR を作成可能。
 2. **テンプレートを埋める**
    - 背景: どの Issue を解決するか（例: `Fixes #101`）。
    - 変更内容: 箇条書きで 2 行以上。
    - 確認方法: どうやって結果をチェックしたか（例: `docs/faq/vpn.md をプレビューで確認`）。
    - テンプレート本文は `.github/pull_request_template.md` にあるので、フォーマット確認やカスタマイズ時に参照してください。
+   - CLI: `gh pr edit --body-file .github/pull_request_template.md` でテンプレートを読み込み、VS Code 等で編集後に保存して反映。
 3. **Projects カードを移動**
    - PR 作成後、Projects のカードを「レビュー」列にドラッグ。
+   - CLI: `gh project item-move --project-id <プロジェクトID> --item-id $(gh pr view --json id --jq '.id') --column-name "レビュー"` で列移動も可能（`project-id` や `item-id` は `gh project item list` などで取得）。
 
 ---
 
@@ -95,10 +104,13 @@
    - 例: `この段落を IT 初心者向けに書き換えて` など指定。
 2. **レビューコメントの確認**
    - メンター/ペアからのコメントに返信。`Apply suggestion` で取り込み可能。
+   - CLI: `gh pr view --comments` でコメントを一覧し、`gh pr checkout <番号>` でローカルに取り込んで修正。
 3. **修正があれば再コミット**
    - 同じブランチで修正 → コミット → プッシュすると PR に差分が追加される。
+   - CLI: `git commit --amend` で直前のコミットを更新したり、`git commit` → `git push` で追コミットを送信。
 4. **承認後にマージ**
    - `Merge pull request` → `Confirm merge` を押し、`Delete branch` で後片付け。
+   - CLI: `gh pr merge --merge --delete-branch --auto` でブラウザを開かずにマージし、リモートブランチも削除。
 
 ---
 
@@ -106,10 +118,13 @@
 
 1. **README の FAQ リスト更新**
    - GitHub Actions `Update README` が成功しているか `Actions` タブで確認。
+   - CLI: `gh run list --workflow "Update README" --limit 1` で直近の結果を確認し、詳細を見たいときは `gh run watch <run-id>`。
 2. **GitHub Pages / 公開ページ**
    - 当日用サイトがある場合、FAQ が反映されたか確認。
+   - CLI: `gh repo view --web` でページを開くか、`gh api repos/:owner/:repo/pages/builds` でビルド状況を確認。
 3. **Projects を「公開済み」へ移動**
    - カードをドラッグし、Issue を close。
+   - CLI: `gh project item-move --project-id <プロジェクトID> --item-id <Issueのitem-id> --column-name "公開済み"`、`gh issue close <番号>` で同じ操作を完結。
 
 ---
 
