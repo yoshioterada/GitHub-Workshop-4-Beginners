@@ -19,7 +19,7 @@
    |:-:|
 
 2. **リポジトリをフォーク**
-   - ブラウザで `https://github.com/yoshioterada/GitHub-Workshop-4-Beginners` を開き、右上の **Fork** をクリック。
+   - ブラウザで [https://github.com/yoshioterada/GitHub-Workshop-4-Beginners](https://github.com/yoshioterada/GitHub-Workshop-4-Beginners) を開き、右上の **Fork** をクリック。
 
    |![fork project1](./assets/images/fork-repo1.png)|
    |:-:|
