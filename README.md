@@ -33,6 +33,7 @@ projects/        GitHub Projects（カンバン）の定義
 
 <!-- FAQ-LIST:START -->
 - [プリンタで印刷できないときの基本手順](docs/faq/printer.md)
+- [パソコンの電源が入らないときの基本手順](docs/faq/stop-pc.md)
 - [Teams 会議に参加できないとき](docs/faq/teams.md)
 - [VPN 接続ができないときのチェックリスト](docs/faq/vpn.md)
 <!-- FAQ-LIST:END -->
