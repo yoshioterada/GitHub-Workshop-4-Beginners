@@ -7,7 +7,6 @@
   },
   "forwardPorts": [4173],
   "postCreateCommand": "./.devcontainer/post-create.sh",
-  "remoteUser": "vscode",
   "customizations": {
     "vscode": {
       "extensions": [
