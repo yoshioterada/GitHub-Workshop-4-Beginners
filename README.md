@@ -47,7 +47,6 @@ projects/        GitHub Projects（カンバン）の定義
 - [CLI クイックリファレンス](docs/cli-cheatsheet.md)
 - [Codespaces ガイド](docs/codespaces-guide.md)
 - [Codespaces Prebuild チェックリスト](docs/codespaces-prebuild-checklist.md)
-- [ワークショップ操作手順書](docs/workshop-operation.md)
 - [サンプル Issue 一覧](docs/sample-issues)
 - [Projects 定義 (JSON)](projects/helpdesk-refresh.json)
 
