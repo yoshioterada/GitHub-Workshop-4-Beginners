@@ -8,6 +8,7 @@
 
 1. **環境を確保する**
    - GitHub Desktop / VS Code / Copilot 拡張をインストール済みか確認。
+
    |![GitHub Sign-In](./assets/images/github-sign-in.png)|
    |:-:|
 
@@ -19,6 +20,7 @@
 
 2. **リポジトリをフォーク**
    - ブラウザで `https://github.com/yoshioterada/GitHub-Workshop-4-Beginners` を開き、右上の **Fork** をクリック。
+
    |![fork project1](./assets/images/fork-repo1.png)|
    |:-:|
 
@@ -28,6 +30,7 @@
 3. **クローン or Codespaces 起動**
    - GitHub Desktop: `Code > Open with GitHub Desktop` を押し、ローカルへ clone。
    - Codespaces を使う場合は `docs/codespaces-guide.md` の手順で「Create codespace on main」。
+
    |![Create Codespaces](./assets/images/create-codespaces-env.png)|
    |:-:|
 
@@ -56,6 +59,7 @@
 1. **Issue テンプレートを開く**
    - リポジトリ画面 → `Issues > New issue` → `Helpdesk Ticket` を選択。
    - CLI (任意): GitHub CLI が使える場合は `gh issue create --template "helpdesk-ticket.yml" --title "[FAQ] ..." --body-file assets/snippets/template.md` のように実行しても OK。
+
    |![Create Issue1](./assets/images/create-issue1.png)|
    |:-:|
 
@@ -67,6 +71,7 @@
    - 再現手順: 時系列で 3 行以上を書く。
    - 期待する結果: どんな FAQ があれば解決しそうかを書く。
    - SLA と添付リンク欄も必ず入力。
+
    |![Create Issue3](./assets/images/create-issue3.png)|
    |:-:|
 
@@ -77,6 +82,7 @@
    - Issue 作成後、右側の `Projects` で `HelpDesk Refresh Board` を選択。
    - 既定で「未着手」にカードが作られるので、担当列を確認。
    - フォーク先などでボードが一覧に出ない場合は、自身のアカウントか組織で新しい Project を作成し（`Projects > New project`）、`projects/helpdesk-refresh.json` の列構成を参考に「未着手 / 作業中 / レビュー / 公開済み」を手動で用意してください。主催者が共有したプロジェクトに参加する権限がないと表示されません。
+
    |![Create New Project1](./assets/images/create-new-project1.png)|
    |:-:|
 
@@ -108,6 +114,7 @@
 - **GitHub Desktop**: 左上の `Current Branch` → 作成したブランチを選択。通知に出る `Switch to branch` をクリックしても OK。
 - **Codespaces / VS Code**: 左下のブランチ名をクリック → 一覧から作成済みブランチを選択。Command Palette（`Cmd/Ctrl + Shift + P`）で `Git: Checkout to...` を実行しても切り替え可能。
 - **CLI**: `git switch issue-<番号>-短い説明`（古いバージョンなら `git checkout issue-<番号>-短い説明`）。現在のブランチは `git status -sb` で確認。
+
 |![Create New Branch](./assets/images/create-a-new-branch3.png)|
 |:-:|
 
@@ -115,6 +122,7 @@
 
 - **GitHub Desktop**: `Open in Visual Studio Code` で対象ファイルへ移動。
 - **CLI**: VS Code を使うなら `code .` や `code docs/faq/wifi-connection-fail.md`。Vim 等のエディタ派は `vim docs/faq/wifi-connection-fail.md` など好みのツールを使用。
+
 |![Open Codespaces](./assets/images/open-codespaces1.png)|
 |:-:|
 
@@ -122,6 +130,7 @@
 
 - 例: `docs/faq/wifi-connection-fail.md` の「解決ステップ」に手順を追記。
 - 画像が必要なら `assets/images/` の SVG を再利用。
+
 |![Create new FAQ File](./assets/images/create-new-faq-file1.png)|
 |:-:|
 
@@ -156,6 +165,7 @@ GitHubの Agent Mode を利用して、AI によるドキュメント作成
    - GitHub Desktop の `Changes` タブで差分を見る。
    - 余計なファイルが含まれていないかチェック。
    - CLI: `git status` で変更ファイル一覧、`git diff` で差分を確認。特定ファイルのみ見たいときは `git diff docs/faq/wifi-connection-fail.md` のようにパスを指定。
+
    |![Git Commit1](./assets/images/git-commit-push1.png)|
    |:-:|
 
@@ -166,12 +176,14 @@ GitHubの Agent Mode を利用して、AI によるドキュメント作成
    - `Summary`: `docs: WiFi Connection Fail checker`
    - `Description`: 変更理由や Issue 番号（例: `Refs #1`）。
    - CLI: `git add docs/faq/wifi-connection-fail.md` など必要なファイルをステージし、`git commit -m "docs: WiFi Connection Fail checker" -m "Refs #1"` を実行。
+
    |![Git Commit3](./assets/images/git-commit-push3.png)|
    |:-:|
 
 3. **コミット & プッシュ**
    - `Commit to <branch>` → `Push origin` の順。
    - CLI: `git push origin issue-<番号>-短い説明`。初回は `git push -u origin issue-<番号>-短い説明` で upstream を設定。
+
    |![Git Commit4](./assets/images/git-commit-push4.png)|
    |:-:|
 
@@ -180,6 +192,7 @@ GitHubの Agent Mode を利用して、AI によるドキュメント作成
 1. **PR を作る**
    - Push 後に表示される `Create Pull Request` を押すか、GitHub 上の `Compare & pull request` をクリック。
    - CLI: `gh pr create --fill --head issue-<番号>-短い説明` を実行。テンプレートが自動で差し込まれ、ブラウザなしで PR を作成可能。
+
    |![Create PR1](./assets/images/create-PR1.png)|
    |:-:|
 
@@ -189,6 +202,7 @@ GitHubの Agent Mode を利用して、AI によるドキュメント作成
    - 確認方法: どうやって結果をチェックしたか（例: `docs/faq/wifi-connection-fail.md をプレビューで確認`）。
    - テンプレート本文は `.github/pull_request_template.md` にあるので、フォーマット確認やカスタマイズ時に参照してください。
    - CLI: `gh pr edit --body-file .github/pull_request_template.md` でテンプレートを読み込み、VS Code 等で編集後に保存して反映。
+
    |![Create PR2](./assets/images/create-PR2.png)|
    |:-:|
 
@@ -198,6 +212,7 @@ GitHubの Agent Mode を利用して、AI によるドキュメント作成
 3. **Projects カードを移動**
    - PR 作成後、Projects のカードを「レビュー」列にドラッグ。
    - CLI: `gh project item-move --project-id <プロジェクトID> --item-id $(gh pr view --json id --jq '.id') --column-name "レビュー"` で列移動も可能（`project-id` や `item-id` は `gh project item list` などで取得）。
+
    |![Update Status](./assets/images/update-project-status.png)|
    |:-:|
 
@@ -205,6 +220,7 @@ GitHubの Agent Mode を利用して、AI によるドキュメント作成
 
 1. **レビューコメントの確認**
    - CopilotからのReviewコメントに返信。`Apply suggestion` で取り込み可能。
+
    |![Review by COpilot1](./assets/images/Review-by-Copilot1.png)|
    |:-:|
 
@@ -215,12 +231,14 @@ GitHubの Agent Mode を利用して、AI によるドキュメント作成
 2. **修正があれば再コミット**
    - 同じブランチで修正 → コミット → プッシュすると PR に差分が追加される。
    - CLI: `git commit --amend` で直前のコミットを更新したり、`git commit` → `git push` で追コミットを送信。
+
    |![Review by COpilot3](./assets/images/Review-by-Copilot3.png)|
    |:-:|
 
 3. **承認後にマージ**
    - `Merge pull request` → `Confirm merge` を押し、`Delete branch` で後片付け。
    - CLI: `gh pr merge --merge --delete-branch --auto` でブラウザを開かずにマージし、リモートブランチも削除。
+
    |![Merge PR1](./assets/images/merge-pr1.png)|
    |:-:|
 
@@ -232,6 +250,7 @@ GitHubの Agent Mode を利用して、AI によるドキュメント作成
 1. **README の FAQ リスト更新**
    - GitHub Actions `Update README` が成功しているか `Actions` タブで確認。
    - CLI: `gh run list --workflow "Update README" --limit 1` で直近の結果を確認し、詳細を見たいときは `gh run watch <run-id>`。
+
    |![Updated README](./assets/images/updated-README.png)|
    |:-:|
 
@@ -241,8 +260,6 @@ GitHubの Agent Mode を利用して、AI によるドキュメント作成
 3. **Projects を「公開済み」へ移動**
    - カードをドラッグし、Issue を close。
    - CLI: `gh project item-move --project-id <プロジェクトID> --item-id <Issueのitem-id> --column-name "公開済み"`、`gh issue close <番号>` で同じ操作を完結。
-
----
 
 ## 7. トラブルシュート早見表
 
