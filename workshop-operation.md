@@ -43,7 +43,7 @@
 
 ## 1. Issue を作成する（約 15 分）
 
-### Issues が Enable になっていない場合
+### (準備 & 確認) Issues が Enable になっていない場合
 
 |![Enable Issue1](./assets/images/enable-issue1.png)|
 |:-:|
