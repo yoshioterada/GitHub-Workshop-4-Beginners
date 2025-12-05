@@ -45,11 +45,17 @@
 
 ### (準備 & 確認) Issues が Enable になっていない場合
 
+自分が作成したレポジトリで Issues が有効になっているかは「Settings」から確認
+
 |![Enable Issue1](./assets/images/enable-issue1.png)|
 |:-:|
 
+「Features」の項目に「Issues」の欄があるのでチェックされているかを確認
+
 |![Enable Issue2](./assets/images/enable-issue2.png)|
 |:-:|
+
+「Issues」が有効になっている場合、メニューに「Issues」が表示される
 
 |![Enable Issue3](./assets/images/enable-issue3.png)|
 |:-:|
@@ -75,13 +81,12 @@
    |![Create Issue3](./assets/images/create-issue3.png)|
    |:-:|
 
-   |![Create Issue4](./assets/images/create-issue4.png)|
-   |:-:|
-
 3. **Projects へ自動連携する**
    - Issue 作成後、右側の `Projects` で `HelpDesk Refresh Board` を選択。
    - 既定で「未着手」にカードが作られるので、担当列を確認。
    - フォーク先などでボードが一覧に出ない場合は、自身のアカウントか組織で新しい Project を作成し（`Projects > New project`）、`projects/helpdesk-refresh.json` の列構成を参考に「未着手 / 作業中 / レビュー / 公開済み」を手動で用意してください。主催者が共有したプロジェクトに参加する権限がないと表示されません。
+
+   **Project Boardの有効化方法**
 
    |![Create New Project1](./assets/images/create-new-project1.png)|
    |:-:|
