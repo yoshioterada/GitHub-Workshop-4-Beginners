@@ -81,6 +81,8 @@
    |![Create Issue3](./assets/images/create-issue3.png)|
    |:-:|
 
+> メモ: サンプルは `docs/sample-issues/issue-101-vpn.md` を参照してください。テンプレートの定義は `.github/ISSUE_TEMPLATE/helpdesk-ticket.yml` にあります。
+
 3. **Projects へ自動連携する**
    - Issue 作成後、右側の `Projects` で `HelpDesk Refresh Board` を選択。
    - 既定で「未着手」にカードが作られるので、担当列を確認。
@@ -88,18 +90,20 @@
 
    **Project Boardの有効化方法**
 
+   GitHub のトップページより「Projects」を選択
+
    |![Create New Project1](./assets/images/create-new-project1.png)|
    |:-:|
+
+   様々な形式のボード・テンプレートから利用したいテンプレートを選択
 
    |![Create New Project2](./assets/images/create-new-project2.png)|
    |:-:|
 
+   プロジェクトに名前をつけて保存
+
    |![Create New Project3](./assets/images/create-new-project3.png)|
    |:-:|
-
-> メモ: サンプルは `docs/sample-issues/issue-101-vpn.md` を参照してください。テンプレートの定義は `.github/ISSUE_TEMPLATE/helpdesk-ticket.yml` にあります。
-
----
 
 ## 2. ブランチを作り作業を開始（約 15 分）
 
@@ -110,6 +114,8 @@
 
 |![Create New Branch](./assets/images/create-a-new-branch1.png)|
 |:-:|
+
+リンクをクリックすると下記の画面が表示される。ブランチ名を設定し「Create Branch」ボタンを押す
 
 |![Create New Branch](./assets/images/create-a-new-branch2.png)|
 |:-:|
@@ -162,6 +168,11 @@ GitHub Copilot を利用できるようにし、Copilot でドキュメントを
 GitHubの Agent Mode を利用して、AI によるドキュメント作成
 
 |![Create Document by Copilot 1](./assets/images/Ask-GitHub-Copilot-to-Create-Document1.png)|
+|:-:|
+
+GitHub Copilot Agent Mode で自動生成されたドキュメントの例
+
+|![Create Document by Copilot 1](./assets/images/generated-document-by-copilot.png)|
 |:-:|
 
 ## 3. 変更をコミットしてプッシュ（約 10 分）
