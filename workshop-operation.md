@@ -31,6 +31,7 @@
 3. **Projects へ自動連携する**
    - Issue 作成後、右側の `Projects` で `HelpDesk Refresh Board` を選択。
    - 既定で「未着手」にカードが作られるので、担当列を確認。
+   - フォーク先などでボードが一覧に出ない場合は、自身のアカウントか組織で新しい Project を作成し（`Projects > New project`）、`projects/helpdesk-refresh.json` の列構成を参考に「未着手 / 作業中 / レビュー / 公開済み」を手動で用意してください。主催者が共有したプロジェクトに参加する権限がないと表示されません。
 
 > メモ: サンプルは `docs/sample-issues/issue-101-vpn.md` を参照してください。テンプレートの定義は `.github/ISSUE_TEMPLATE/helpdesk-ticket.yml` にあります。
 
@@ -38,16 +39,25 @@
 
 ## 2. ブランチを作り作業を開始（約 15 分）
 
-1. **Issue からブランチを作成**
-   - Issue 画面右上の `Create branch` → `issue-<番号>-短い説明` の形式で作成。
-2. **GitHub Desktop でブランチ切替**
-   - `Current Branch` → 作成したブランチを選択。
-   - デスクトップ通知に表示される `Switch to branch` をクリックしても OK。
-3. **VS Code を開く**
-   - GitHub Desktop の `Open in Visual Studio Code` で対象ファイルへ移動。
-4. **FAQ を編集**
-   - 例: `docs/faq/vpn.md` の「解決ステップ」に手順を追記。
-   - 画像が必要なら `assets/images/` の SVG を再利用。
+### 2.1 Issue からブランチを作成
+
+- Issue 画面右上の `Create branch` → `issue-<番号>-短い説明` の形式で作成。
+- 「Create branch」ボタンが見当たらない場合は、右ペインの **Development** セクションにある `Create a branch for this issue` リンクをクリックすると同じダイアログが開きます。さらに Fork リポジトリでは GitHub Desktop から `Branch > New branch` を選び、命名ルール `issue-<番号>-短い説明` を手入力して作成しても構いません。
+
+### 2.2 ブランチの切り替え
+
+- **GitHub Desktop**: 左上の `Current Branch` → 作成したブランチを選択。通知に出る `Switch to branch` をクリックしても OK。
+- **Codespaces / VS Code**: 左下のブランチ名をクリック → 一覧から作成済みブランチを選択。Command Palette（`Cmd/Ctrl + Shift + P`）で `Git: Checkout to...` を実行して選ぶこともできます。
+- **CLI**: ターミナルで `git fetch origin;git branch -a` を実行したのち `git switch issue-1-cant-start-pc`（古いバージョンなら `git checkout issue-1-cant-start-pc`）を実行。`git branch` で現在のブランチを確認可能です。
+
+### 2.3 VS Code / エディタを開く
+
+- GitHub Desktop の `Open in Visual Studio Code` で対象ファイルへ移動。Codespaces の場合はブラウザ上の VS Code が自動で開きます。
+
+### 2.4 FAQ を編集
+
+- 例: `docs/faq/vpn.md` の「解決ステップ」に手順を追記。
+- 画像が必要なら `assets/images/` の SVG を再利用。
 
 ---
 
@@ -56,6 +66,7 @@
 1. **変更を確認**
    - GitHub Desktop の `Changes` タブで差分を見る。
    - 余計なファイルが含まれていないかチェック。
+   - CLI で確認したい場合は `git status`（変更ファイル一覧）や `git diff`（差分内容）を実行。特定ファイルのみ見たいときは `git diff docs/faq/vpn.md` のようにパスを指定します。
 2. **コミットメッセージを書く**
    - `Summary`: `docs: VPN FAQ にエラー表を追加`
    - `Description`: 変更理由や Issue 番号（例: `Refs #101`）。
