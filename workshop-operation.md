@@ -14,7 +14,6 @@
 2. **リポジトリをフォーク**
    - ブラウザで `https://github.com/yoshioterada/GitHub-Workshop-4-Beginners` を開き、右上の **Fork** をクリック。
    ![fork project1](./assets/images/fork-repo1.png)
-   ![fork project2](./assets/images/fork-repo2.png)
    ![fork project3](./assets/images/fork-repo3.png)
 3. **クローン or Codespaces 起動**
    - GitHub Desktop: `Code > Open with GitHub Desktop` を押し、ローカルへ clone。
@@ -96,11 +95,11 @@ GitHub Copilot を利用できるようにし、Copilot でドキュメントを
 まず、GitHub Copilot を利用できるように設定。
 
 「Premium モデルの追加」をクリック
-![Config GitHub Copilot 1](./assets/images/Configure-GitHub-Copilot-for-Free-Plan1.png)
+![Config GitHub Copilot 1](./assets/images/Configure-GitHub-Copilot-for-Free-Plan1.png)  
 「Use AI Feature」のボタンをクリック
-![Config GitHub Copilot 2](./assets/images/Configure-GitHub-Copilot-for-Free-Plan2.png)
+![Config GitHub Copilot 2](./assets/images/Configure-GitHub-Copilot-for-Free-Plan2.png)  
 「モデルの管理... Add Premium Models」でモデルを選択。例：`GPT-4.1`
-![Config GitHub Copilot 3](./assets/images/Configure-GitHub-Copilot-for-Free-Plan3.png)
+![Config GitHub Copilot 3](./assets/images/Configure-GitHub-Copilot-for-Free-Plan3.png)  
 
 GitHubの Agent Mode を利用して、AI によるドキュメント作成
 
